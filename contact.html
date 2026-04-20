@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Daron Acemoglu</title>
+  <meta name="description" content="Contact Daron Acemoglu for speaking engagements, media requests, academic inquiries, and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Inquiry types ─────────────────────── */
+    .inquiry-types {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1.5px solid var(--color-border);
+      margin-bottom: 3rem;
+    }
+
+    .inquiry-type-btn {
+      padding: 1.25rem 1rem;
+      text-align: center;
+      cursor: pointer;
+      border: none;
+      border-right: 1.5px solid var(--color-border);
+      background: var(--color-warm-white);
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-mid-grey);
+      transition: var(--transition);
+    }
+
+    .inquiry-type-btn:last-child { border-right: none; }
+
+    .inquiry-type-btn:hover,
+    .inquiry-type-btn.active {
+      background: var(--color-navy);
+      color: var(--color-warm-white);
+    }
+
+    .inquiry-type-btn i {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: var(--color-gold);
+    }
+
+    .inquiry-type-btn.active i,
+    .inquiry-type-btn:hover i { color: var(--color-gold); }
+
+    /* ── Media kit section ─────────────────── */
+    .media-kit-section {
+      background: var(--color-navy);
+      padding: 80px 0;
+    }
+
+    .media-kit-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .media-kit-content h2 {
+      color: var(--color-warm-white);
+      margin-bottom: 1.25rem;
+    }
+
+    .media-kit-content p {
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 1.5rem;
+    }
+
+    .media-kit-items {
+      display: flex;
+      flex-direction: column;
+      gap: 0.875rem;
+    }
+
+    .media-kit-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.25rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .media-kit-item:hover {
+      background: rgba(201,168,76,0.1);
+      border-color: rgba(201,168,76,0.4);
+    }
+
+    .media-kit-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(201,168,76,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-gold);
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .media-kit-item-text {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--color-warm-white);
+    }
+
+    .media-kit-item-sub {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+      margin-top: 2px;
+    }
+
+    .media-kit-item-arrow {
+      margin-left: auto;
+      color: var(--color-gold);
+    }
+
+    .media-kit-photo {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      object-position: top;
+      filter: grayscale(15%);
+    }
+
+    /* ── Success message ───────────────────── */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 3rem;
+      background: #f0faf4;
+      border: 1px solid #c3e6cb;
+    }
+
+    .form-success.visible { display: block; }
+
+    .form-success h3 {
+      color: #2d6a4f;
+      margin-bottom: 0.75rem;
+    }
+
+    .form-success p {
+      color: #52796f;
+    }
+
+    /* ── Social links ──────────────────────── */
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-link {
+      width: 44px;
+      height: 44px;
+      border: 1.5px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-mid-grey);
+      font-size: 1rem;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .social-link:hover {
+      background: var(--color-navy);
+      border-color: var(--color-navy);
+      color: var(--color-warm-white);
+    }
+
+    @media (max-width: 768px) {
+      .inquiry-types { grid-template-columns: repeat(2, 1fr); }
+      .inquiry-type-btn:nth-child(2) { border-right: none; }
+      .inquiry-type-btn:nth-child(3) { border-top: 1.5px solid var(--color-border); }
+      .inquiry-type-btn:nth-child(4) { border-top: 1.5px solid var(--color-border); border-right: none; }
+      .media-kit-inner { grid-template-columns: 1fr; }
+      .media-kit-photo { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .inquiry-types { grid-template-columns: 1fr; }
+      .inquiry-type-btn { border-right: none; border-bottom: 1.5px solid var(--color-border); }
+      .inquiry-type-btn:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAVIGATION ═════════════════════════════════════════ -->
+  <nav class="site-nav scrolled" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Daron Acemoglu Home">
+        <div class="nav-monogram" aria-hidden="true">DA</div>
+        <div class="nav-name">
+          Daron Acemoglu
+          <span>Nobel Laureate · MIT</span>
+        </div>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="books.html">Books</a></li>
+        <li><a href="speaking.html">Speaking</a></li>
+        <li><a href="contact.html" class="active nav-cta">Book Daron</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ══ HERO ═══════════════════════════════════════════════ -->
+    <section class="contact-hero" aria-labelledby="contact-hero-heading">
+      <div class="container">
+        <span class="eyebrow animate-fade-up">Get in Touch</span>
+        <h1 id="contact-hero-heading" class="animate-fade-up delay-1">Connect with Daron</h1>
+        <p class="animate-fade-up delay-2">
+          For speaking engagements, media requests, academic inquiries, or general correspondence, please select the appropriate channel below.
+        </p>
+      </div>
+    </section>
+
+    <!-- ══ CONTACT SECTION ════════════════════════════════════ -->
+    <section class="contact-section section-padding fade-in-section" aria-label="Contact information and form">
+      <div class="container">
+        <div class="contact-grid">
+
+          <!-- Left: Info -->
+          <div>
+            <div class="section-header">
+              <span class="eyebrow">Contact Channels</span>
+              <h2>The Right Point of Contact</h2>
+            </div>
+
+            <article class="contact-info-item">
+              <div class="contact-info-icon" aria-hidden="true"><i class="fa-solid fa-microphone"></i></div>
+              <div>
+                <div class="contact-info-label">Speaking Engagements</div>
+                <div class="contact-info-value">The Lavin Agency</div>
+                <div class="contact-info-desc">Daron is exclusively represented by The Lavin Agency for keynote speaking, fireside chats, and corporate events. <a href="https://thelavinagency.com/speakers/daron-acemoglu/" target="_blank" rel="noopener" style="color: var(--color-gold);">Visit Lavin Profile →</a></div>
+              </div>
+            </article>
+
+            <article class="contact-info-item">
+              <div class="contact-info-icon" aria-hidden="true"><i class="fa-solid fa-newspaper"></i></div>
+              <div>
+                <div class="contact-info-label">Media &amp; Press</div>
+                <div class="contact-info-value">Media Inquiries</div>
+                <div class="contact-info-desc">For interview requests, commentary, and press appearances, please use the contact form opposite with "Media Request" selected, or reach Daron's team through his MIT faculty page.</div>
+              </div>
+            </article>
+
+            <article class="contact-info-item">
+              <div class="contact-info-icon" aria-hidden="true"><i class="fa-solid fa-building-columns"></i></div>
+              <div>
+                <div class="contact-info-label">Academic &amp; Research</div>
+                <div class="contact-info-value">MIT Department of Economics</div>
+                <div class="contact-info-desc">For academic collaboration, research inquiries, and institutional matters: <a href="https://economics.mit.edu/people/faculty/daron-acemoglu" target="_blank" rel="noopener" style="color: var(--color-gold);">MIT Faculty Profile →</a> or daron@mit.edu</div>
+              </div>
+            </article>
+
+            <article class="contact-info-item">
+              <div class="contact-info-icon" aria-hidden="true"><i class="fa-solid fa-book"></i></div>
+              <div>
+                <div class="contact-info-label">Books &amp; Publishing</div>
+                <div class="contact-info-value">PublicAffairs / Penguin Random House</div>
+                <div class="contact-info-desc">For rights, permissions, and publishing inquiries, please contact PublicAffairs Books or Penguin Random House directly.</div>
+              </div>
+            </article>
+
+            <div style="margin-top: 2rem;">
+              <div class="eyebrow" style="margin-bottom:1rem;">Follow &amp; Connect</div>
+              <div class="social-links">
+                <a href="https://scholar.google.com/citations?user=l9Or8EMAAAAJ" target="_blank" rel="noopener" class="social-link" aria-label="Google Scholar">
+                  <i class="fa-solid fa-graduation-cap"></i>
+                </a>
+                <a href="https://economics.mit.edu/people/faculty/daron-acemoglu" target="_blank" rel="noopener" class="social-link" aria-label="MIT Faculty Page">
+                  <i class="fa-solid fa-university"></i>
+                </a>
+                <a href="https://www.nobelprize.org/prizes/economic-sciences/2024/acemoglu/facts/" target="_blank" rel="noopener" class="social-link" aria-label="Nobel Prize Profile">
+                  <i class="fa-solid fa-medal"></i>
+                </a>
+                <a href="https://www.project-syndicate.org/columnist/daron-acemoglu" target="_blank" rel="noopener" class="social-link" aria-label="Project Syndicate">
+                  <i class="fa-solid fa-pen-nib"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Form -->
+          <div class="contact-form-wrap fade-in-section">
+            <h3>Send an Inquiry</h3>
+            <p>Please complete the form below and Daron's team will respond within 3–5 business days.</p>
+
+            <!-- Inquiry Type Selector -->
+            <div class="inquiry-types" role="group" aria-label="Select inquiry type">
+              <button class="inquiry-type-btn active" data-type="speaking" type="button">
+                <i class="fa-solid fa-microphone" aria-hidden="true"></i>
+                Speaking
+              </button>
+              <button class="inquiry-type-btn" data-type="media" type="button">
+                <i class="fa-solid fa-newspaper" aria-hidden="true"></i>
+                Media
+              </button>
+              <button class="inquiry-type-btn" data-type="academic" type="button">
+                <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+                Academic
+              </button>
+              <button class="inquiry-type-btn" data-type="other" type="button">
+                <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                Other
+              </button>
+            </div>
+
+            <form id="contact-form" novalidate>
+              <input type="hidden" name="inquiry_type" id="inquiry-type-input" value="speaking">
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="first-name">First Name <span style="color:var(--color-gold)">*</span></label>
+                  <input
+                    type="text"
+                    id="first-name"
+                    name="first_name"
+                    class="form-input"
+                    placeholder="Jane"
+                    required
+                    autocomplete="given-name"
+                  >
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="last-name">Last Name <span style="color:var(--color-gold)">*</span></label>
+                  <input
+                    type="text"
+                    id="last-name"
+                    name="last_name"
+                    class="form-input"
+                    placeholder="Smith"
+                    required
+                    autocomplete="family-name"
+                  >
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="email">Email Address <span style="color:var(--color-gold)">*</span></label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-input"
+                  placeholder="jane@organization.com"
+                  required
+                  autocomplete="email"
+                >
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="organization">Organization / Institution</label>
+                <input
+                  type="text"
+                  id="organization"
+                  name="organization"
+                  class="form-input"
+                  placeholder="Your company, university, or organization"
+                  autocomplete="organization"
+                >
+              </div>
+
+              <div class="form-group" id="event-date-group" style="">
+                <label class="form-label" for="event-date">Event Date (if applicable)</label>
+                <input
+                  type="date"
+                  id="event-date"
+                  name="event_date"
+                  class="form-input"
+                >
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="location">Event Location / Format</label>
+                <select id="location" name="location" class="form-select">
+                  <option value="">Select format…</option>
+                  <option value="in-person">In-Person</option>
+                  <option value="virtual">Virtual / Online</option>
+                  <option value="hybrid">Hybrid</option>
+                  <option value="na">Not Applicable</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="message">Message <span style="color:var(--color-gold)">*</span></label>
+                <textarea
+                  id="message"
+                  name="message"
+                  class="form-textarea"
+                  placeholder="Please describe your event, publication, research collaboration, or inquiry in detail…"
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" class="form-submit">
+                <i class="fa-solid fa-paper-plane" style="margin-right:0.5rem;" aria-hidden="true"></i>
+                Send Message
+              </button>
+
+              <p class="form-note">
+                <i class="fa-solid fa-lock" aria-hidden="true"></i>
+                Your information is kept private and will only be used to respond to your inquiry.
+              </p>
+            </form>
+
+            <div class="form-success" id="form-success" role="alert">
+              <h3>✓ Message Received</h3>
+              <p>Thank you for reaching out. Daron's team will review your inquiry and respond within 3–5 business days.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ MEDIA KIT ══════════════════════════════════════════ -->
+    <section class="media-kit-section fade-in-section" aria-labelledby="media-kit-heading">
+      <div class="container">
+        <div class="media-kit-inner">
+          <div class="media-kit-content">
+            <span class="eyebrow">For Media &amp; Event Teams</span>
+            <h2 id="media-kit-heading">Resources &amp; Media Assets</h2>
+            <p>
+              Official high-resolution photos, biographical notes, book covers, and promotional materials are available for approved media and event use.
+            </p>
+
+            <div class="media-kit-items">
+              <div class="media-kit-item">
+                <div class="media-kit-icon" aria-hidden="true"><i class="fa-solid fa-image"></i></div>
+                <div>
+                  <div class="media-kit-item-text">Official Press Photos</div>
+                  <div class="media-kit-item-sub">High-resolution headshots &amp; event images</div>
+                </div>
+                <div class="media-kit-item-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></div>
+              </div>
+
+              <div class="media-kit-item">
+                <div class="media-kit-icon" aria-hidden="true"><i class="fa-solid fa-book"></i></div>
+                <div>
+                  <div class="media-kit-item-text">Book Cover Assets</div>
+                  <div class="media-kit-item-sub">High-resolution covers for all titles</div>
+                </div>
+                <div class="media-kit-item-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></div>
+              </div>
+
+              <div class="media-kit-item">
+                <div class="media-kit-icon" aria-hidden="true"><i class="fa-solid fa-file-lines"></i></div>
+                <div>
+                  <div class="media-kit-item-text">Official Biography (Short &amp; Long Form)</div>
+                  <div class="media-kit-item-sub">For event programs, introductions, and publications</div>
+                </div>
+                <div class="media-kit-item-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></div>
+              </div>
+
+              <a
+                href="https://economics.mit.edu/sites/default/files/2022-08/Daron%20Acemoglu%20CV.pdf"
+                target="_blank"
+                rel="noopener"
+                class="media-kit-item"
+                style="text-decoration:none;"
+              >
+                <div class="media-kit-icon" aria-hidden="true"><i class="fa-solid fa-file-pdf"></i></div>
+                <div>
+                  <div class="media-kit-item-text">Full Academic CV</div>
+                  <div class="media-kit-item-sub">MIT Economics — PDF download</div>
+                </div>
+                <div class="media-kit-item-arrow" aria-hidden="true"><i class="fa-solid fa-external-link"></i></div>
+              </a>
+            </div>
+
+            <p style="color: rgba(255,255,255,0.55); font-size:0.875rem; margin-top:1.5rem;">
+              <i class="fa-solid fa-info-circle" aria-hidden="true"></i>
+              To access press materials, please use the contact form and select "Media." Assets will be provided upon verification.
+            </p>
+          </div>
+
+          <img
+            src="images/daron-speaking.jpg"
+            alt="Daron Acemoglu at a press conference"
+            class="media-kit-photo"
+            width="480"
+            height="600"
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CTA BANNER ═════════════════════════════════════════ -->
+    <section class="cta-banner fade-in-section" aria-labelledby="contact-cta-heading">
+      <div class="container" style="position:relative; z-index:1;">
+        <span class="eyebrow">Speaking Representation</span>
+        <h2 id="contact-cta-heading">Book Daron Through<br>The Lavin Agency</h2>
+        <p>Daron is exclusively represented for speaking by The Lavin Agency — one of the world's leading speaker bureaus for thinkers, authors, and public intellectuals.</p>
+        <div class="cta-actions">
+          <a href="https://thelavinagency.com/speakers/daron-acemoglu/" target="_blank" rel="noopener" class="btn btn-primary">
+            <i class="fa-solid fa-external-link" aria-hidden="true"></i>
+            Visit Lavin Agency Profile
+          </a>
+          <a href="speaking.html" class="btn btn-outline-light">Speaking Topics</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══ FOOTER ═════════════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="nav-monogram" style="background:var(--color-gold); color:var(--color-navy); width:44px; height:44px; font-family:var(--font-serif); font-size:1.1rem; font-weight:700; display:flex; align-items:center; justify-content:center; border-radius:2px;" aria-hidden="true">DA</div>
+          <div class="footer-brand-name">Daron Acemoglu</div>
+          <div class="footer-brand-title">Nobel Laureate · MIT Institute Professor</div>
+          <p class="footer-brand-bio">Economist, author, and public intellectual at the frontier of institutions, AI, and the future of prosperity.</p>
+        </div>
+        <nav aria-label="Footer navigation">
+          <div class="footer-heading">Navigation</div>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="speaking.html">Speaking</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div>
+          <div class="footer-heading">Resources</div>
+          <ul class="footer-links">
+            <li><a href="https://economics.mit.edu/people/faculty/daron-acemoglu" target="_blank" rel="noopener">MIT Faculty Page</a></li>
+            <li><a href="https://scholar.google.com/citations?user=l9Or8EMAAAAJ" target="_blank" rel="noopener">Google Scholar</a></li>
+            <li><a href="https://www.nobelprize.org/prizes/economic-sciences/2024/acemoglu/facts/" target="_blank" rel="noopener">Nobel Prize Profile</a></li>
+            <li><a href="https://thelavinagency.com/speakers/daron-acemoglu/" target="_blank" rel="noopener">Lavin Agency (Speaking)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-legal">&copy; <span id="year"></span> Daron Acemoglu. All rights reserved.</p>
+        <p class="footer-affiliation">Institute Professor, <a href="https://economics.mit.edu/" target="_blank" rel="noopener">MIT Department of Economics</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ── Inquiry type tabs ─────────────────── */
+    const typeButtons = document.querySelectorAll('.inquiry-type-btn');
+    const typeInput = document.getElementById('inquiry-type-input');
+    const eventDateGroup = document.getElementById('event-date-group');
+
+    typeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        typeButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const type = btn.dataset.type;
+        typeInput.value = type;
+        // Show/hide event date based on type
+        eventDateGroup.style.display = (type === 'speaking') ? '' : 'none';
+      });
+    });
+
+    /* ── Form submission ──────────────────── */
+    const form = document.getElementById('contact-form');
+    const successEl = document.getElementById('form-success');
+
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('.form-submit');
+      const original = btn.innerHTML;
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i> Sending…';
+      btn.disabled = true;
+
+      // Simulate sending (replace with backend endpoint or Formspree/Netlify Forms)
+      await new Promise(r => setTimeout(r, 1600));
+
+      form.style.display = 'none';
+      successEl.classList.add('visible');
+    });
+  </script>
+</body>
+</html>

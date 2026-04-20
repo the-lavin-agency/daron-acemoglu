@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Books — Daron Acemoglu</title>
+  <meta name="description" content="Browse Daron Acemoglu's bestselling books: Why Nations Fail, The Narrow Corridor, Power and Progress, and What Happened to Liberal Democracy?">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Books page extras ─────────────────── */
+    .books-list-section {
+      background: var(--color-warm-white);
+    }
+
+    /* Alternating book rows */
+    .book-detail-item:nth-child(even) {
+      background: var(--color-cream);
+      margin-left: -2rem;
+      margin-right: -2rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    .book-detail-item:nth-child(even).reverse {
+      direction: rtl;
+    }
+
+    .book-detail-item:nth-child(even).reverse > * {
+      direction: ltr;
+    }
+
+    /* Research publications section */
+    .research-section {
+      background: var(--color-navy);
+      padding: 80px 0;
+    }
+
+    .research-papers {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .research-paper {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 1.75rem 2rem;
+      transition: var(--transition);
+    }
+
+    .research-paper:hover {
+      border-color: rgba(201,168,76,0.5);
+      background: rgba(201,168,76,0.05);
+    }
+
+    .research-paper-journal {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .research-paper h3 {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      color: var(--color-warm-white);
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+
+    .research-paper p {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.6;
+    }
+
+    .research-paper-year {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.35);
+      margin-top: 0.75rem;
+    }
+
+    @media (max-width: 768px) {
+      .research-papers { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAVIGATION ═════════════════════════════════════════ -->
+  <nav class="site-nav scrolled" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Daron Acemoglu Home">
+        <div class="nav-monogram" aria-hidden="true">DA</div>
+        <div class="nav-name">
+          Daron Acemoglu
+          <span>Nobel Laureate · MIT</span>
+        </div>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="books.html" class="active">Books</a></li>
+        <li><a href="speaking.html">Speaking</a></li>
+        <li><a href="contact.html" class="nav-cta">Book Daron</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ══ HERO ═══════════════════════════════════════════════ -->
+    <section class="books-page-hero" aria-labelledby="books-hero-heading">
+      <div class="container">
+        <span class="eyebrow animate-fade-up">Published Works</span>
+        <h1 id="books-hero-heading" class="animate-fade-up delay-1" style="color: var(--color-warm-white); margin: 0.75rem 0 1rem;">Books That<br>Changed the Conversation.</h1>
+        <p class="animate-fade-up delay-2" style="color: rgba(255,255,255,0.7); font-size: 1.125rem; max-width: 580px; line-height: 1.75;">
+          From democracy and institutions to AI and the future of work, Daron's books combine the rigor of world-class scholarship with prose accessible to any serious reader.
+        </p>
+        <div class="animate-fade-up delay-3" style="margin-top: 2rem;">
+          <img
+            src="images/books-all.png"
+            alt="Daron Acemoglu's four major books"
+            style="max-width: 520px; width: 100%; filter: drop-shadow(0 24px 48px rgba(0,0,0,0.5));"
+            width="520"
+            height="260"
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ BOOKS DETAIL LIST ════════════════════════════════ -->
+    <section class="books-list-section" aria-label="Book details">
+      <div class="container">
+        <div class="books-detail-list">
+
+          <!-- Book 1: What Happened to Liberal Democracy -->
+          <article id="liberal-democracy" class="book-detail-item fade-in-section">
+            <div class="book-detail-cover">
+              <img
+                src="images/book-liberal-democracy.png"
+                alt="What Happened to Liberal Democracy? book cover"
+                width="220"
+                height="330"
+              >
+            </div>
+            <div class="book-detail-content">
+              <span class="eyebrow">Latest · 2025</span>
+              <h2>What Happened to<br>Liberal Democracy?</h2>
+              <p class="book-subtitle">With James A. Robinson</p>
+
+              <p>
+                Liberal democracy is in crisis. Around the world, the institutions that once guaranteed civil liberties, political competition, and accountable governance are under sustained assault — from populist leaders, captured courts, weakened civil societies, and a concentrated media landscape. <em>What Happened to Liberal Democracy?</em> delivers an urgent, evidence-driven diagnosis of democracy's fragility, and a clear-eyed case for what it will take to restore it.
+              </p>
+
+              <p>
+                Drawing on the foundational framework of <em>Why Nations Fail</em> and <em>The Narrow Corridor</em>, Acemoglu and Robinson show that liberal democracy is not a stable equilibrium — it is a precarious achievement that must be actively maintained.
+              </p>
+
+              <div class="book-detail-meta">
+                <div class="book-meta-item">
+                  <span class="book-meta-label">Co-Author</span>
+                  <span class="book-meta-value">James A. Robinson</span>
+                </div>
+                <div class="book-meta-item">
+                  <span class="book-meta-label">Publisher</span>
+                  <span class="book-meta-value">PublicAffairs</span>
+                </div>
+                <div class="book-meta-item">
+                  <span class="book-meta-label">Year</span>
+                  <span class="book-meta-value">2025</span>
+                </div>
+              </div>
+
+              <div class="book-praise-list">
+                <div class="book-praise-quote">
+                  <p>"A very important work and a must-read."</p>
+                  <cite>Thomas Piketty — #1 New York Times bestselling author of <em>Capital in the Twenty-First Century</em></cite>
+                </div>
+                <div class="book-praise-quote">
+                  <p>"Acemoglu and Robinson have done it again — a searing, necessary account of democracy's crisis."</p>
+                  <cite>The Guardian</cite>
+                </div>
+              </div>
+
+              <div class="book-links">
+                <a href="https://www.publicaffairsbooks.com/" target="_blank" rel="noopener" class="btn btn-primary">
+                  <i class="fa-solid fa-book" aria-hidden="true"></i>
+                  Buy Now
+                </a>
+                <a href="https://www.amazon.com/" target="_blank" rel="noopener" class="btn btn-outline">Amazon</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Book 2: Power and Progress -->
+          <article id="power-progress" class="book-detail-item reverse fade-in-section">
+            <div class="book-detail-cover">
+              <img
+                src="images/book-power-progress.png"
+                alt="Power and Progress book cover"
+                width="220"
+                height="330"
+              >
+            </div>
+            <div class="book-detail-content">
+              <span class="eyebrow">2023</span>
+              <h2>Power and Progress</h2>
+              <p class="book-subtitle">Our Thousand-Year Struggle Over Technology &amp; Prosperity — With Simon Johnson</p>
+
+              <p>
+                Technologies have always promised to transform humanity for the better. And yet, throughout history, the benefits of technological progress have rarely flowed automatically to the many — they have instead been captured by the few. <em>Power and Progress</em> traces this pattern across a thousand years, from the medieval agricultural revolution to the Industrial Revolution, from computing to artificial intelligence.
+              </p>
+
+              <p>
+                The message is urgent and actionable: the direction of AI is not fixed. But getting it right will require deliberate choices — by governments, companies, and citizens — about who technology should serve.
+              </p>
+
+              <div class="book-detail-meta">
+                <div class="book-meta-item">
+                  <span class="book-meta-label">Co-Author</span>
+                  <span class="book-meta-value">Simon Johnson</span>
+                </div>
+                <div class="book-meta-item">
+                  <span class="book-meta-label">Publisher</span>
+                  <span class="book-meta-value">PublicAffairs</span>
+                </div>
+                <div class="book-meta-item">
+                  <span class="book-meta-label">Year</span>
+                  <span class="book-meta-value">2023</span>
+                </div>
+              </div>
+
+              <div class="book-praise-list">
+                <div class="book-praise-quote">
+                  <p>"The blueprint we need for the challenges ahead."</p>
+                  <cite>Shoshana Zuboff — Author of <em>The Age of Surveillance Capitalism</em></cite>
+                </div>
+                <div class="book-praise-quote">
+                  <p>"A sweeping, indispensable history of how technology and power have always been intertwined — and what it means for AI today."</p>
+                  <cite>The Atlantic</cite>
+                </div>
+              </div>
+
+              <div class="book-links">
+                <a href="https://www.publicaffairsbooks.com/titles/daron-acemoglu/power-and-progress/9781541702547/" target="_blank" rel="noopener" class="btn btn-primary">
+                  <i class="fa-solid fa-book" aria-hidden="true"></i>
+                  Buy Now
+                </a>
+                <a href="https://www.amazon.com/Power-Progress-Thousand-Year-Technology-Prosperity/dp/1541702530" target="_blank" rel="noopener" class="btn btn-outline">Amazon</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Book 3: The Narrow Corridor -->
+          <article id="narrow-corridor" class="book-detail-item fade-in-section">
+            <div class="book-detail-cover">
+              <img
+                src="images/book-narrow-corridor.png"
+                alt="The Narrow Corridor book cover"
+                width="220"
+                height="330"
+              >
+            </div>
+            <div class="book-detail-content">
+              <span class="eyebrow">2019</span>
+              <h2>The Narrow Corridor</h2>
+              <p class="book-subtitle">States, Societies, and the Fate of Liberty — With James A. Robinson</p>
+
+              <p>
+                Why do some societies achieve and sustain liberty while others fall into despotism? In this landmark work, Acemoglu and Robinson argue that liberty emerges only when a capable state and a mobilized society are in balance — and that this balance is far more fragile, and far more rare, than we assume.
+              </p>
+
+              <p>
+                Drawing on anthropology, history, and economic theory, <em>The Narrow Corridor</em> reframes the central question of political economy: not just how nations become rich, but how they become — and remain — free.
+              </p>
+
+              <div class="book-detail-meta">
+                <div class="book-meta-item">
+                  <span class="book-meta-label">Co-Author</span>
+                  <span class="book-meta-value">James A. Robinson</span>
+                </div>
+                <div class="book-meta-item">
+                  <span class="book-meta-label">Publisher</span>
+                  <span class="book-meta-value">Penguin Press</span>
+                </div>
+                <div class="book-meta-item">
+                  <span class="book-meta-label">Year</span>
+                  <span class="book-meta-value">2019</span>
+                </div>
+              </div>
+
+              <div class="book-praise-list">
+                <div class="book-praise-quote">
+                  <p>"One of the most important books of the decade. A profound meditation on what makes societies free."</p>
+                  <cite>The Washington Post</cite>
+                </div>
+                <div class="book-praise-quote">
+                  <p>"Brilliant and sobering. A reminder that liberty is always contested — and always fragile."</p>
+                  <cite>The Economist</cite>
+                </div>
+              </div>
+
+              <div class="book-links">
+                <a href="https://www.penguinrandomhouse.com/" target="_blank" rel="noopener" class="btn btn-primary">
+                  <i class="fa-solid fa-book" aria-hidden="true"></i>
+                  Buy Now
+                </a>
+                <a href="https://www.amazon.com/Narrow-Corridor-States-Societies-Liberty/dp/0735224382" target="_blank" rel="noopener" class="btn btn-outline">Amazon</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Book 4: Why Nations Fail -->
+          <article id="why-nations-fail" class="book-detail-item reverse fade-in-section">
+            <div class="book-detail-cover">
+              <img
+                src="images/book-why-nations-fail.png"
+                alt="Why Nations Fail book cover"
+                width="220"
+                height="330"
+              >
+            </div>
+            <div class="book-detail-content">
+              <span class="eyebrow">New York Times Bestseller · 2012</span>
+              <h2>Why Nations Fail</h2>
+              <p class="book-subtitle">The Origins of Power, Prosperity, and Poverty — With James A. Robinson</p>
+
+              <p>
+                Why are some nations rich and others poor? Economists have proposed many answers — geography, culture, colonial history, natural resources. Acemoglu and Robinson demolish them all, and replace them with a single, evidence-backed framework: inclusive political and economic institutions create prosperity; extractive ones destroy it.
+              </p>
+
+              <p>
+                <em>Why Nations Fail</em> became a global phenomenon — a New York Times bestseller translated into over 40 languages, endorsed by Jared Diamond, and described by Nobel Laureate George Akerlof as "a brilliant and uplifting book that advances our understanding of what makes nations succeed or fail." The research underpinning it would ultimately win Acemoglu the Nobel Prize in Economics in 2024.
+              </p>
+
+              <div class="book-detail-meta">
+                <div class="book-meta-item">
+                  <span class="book-meta-label">Co-Author</span>
+                  <span class="book-meta-value">James A. Robinson</span>
+                </div>
+                <div class="book-meta-item">
+                  <span class="book-meta-label">Publisher</span>
+                  <span class="book-meta-value">Crown Publishers</span>
+                </div>
+                <div class="book-meta-item">
+                  <span class="book-meta-label">Year</span>
+                  <span class="book-meta-value">2012</span>
+                </div>
+                <div class="book-meta-item">
+                  <span class="book-meta-label">Languages</span>
+                  <span class="book-meta-value">40+ Translations</span>
+                </div>
+              </div>
+
+              <div class="book-praise-list">
+                <div class="book-praise-quote">
+                  <p>"A brilliant and uplifting book that advances our understanding of what makes nations succeed or fail."</p>
+                  <cite>George Akerlof — Nobel Laureate in Economics</cite>
+                </div>
+                <div class="book-praise-quote">
+                  <p>"A sweeping explanation of why so many countries are poor. Brilliant, erudite, and enjoyable."</p>
+                  <cite>Jared Diamond — Pulitzer Prize-winning author of <em>Guns, Germs, and Steel</em></cite>
+                </div>
+              </div>
+
+              <div class="book-links">
+                <a href="https://www.penguinrandomhouse.com/books/205014/why-nations-fail-by-daron-acemoglu-and-james-a-robinson/" target="_blank" rel="noopener" class="btn btn-primary">
+                  <i class="fa-solid fa-book" aria-hidden="true"></i>
+                  Buy Now
+                </a>
+                <a href="https://www.amazon.com/Why-Nations-Fail-Origins-Prosperity/dp/0307719227" target="_blank" rel="noopener" class="btn btn-outline">Amazon</a>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /.books-detail-list -->
+      </div>
+    </section>
+
+    <!-- ══ RESEARCH PAPERS ════════════════════════════════════ -->
+    <section class="research-section fade-in-section" aria-labelledby="research-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Academic Research</span>
+          <h2 id="research-heading" style="color: var(--color-warm-white);">Selected Publications</h2>
+          <p class="lead" style="color: rgba(255,255,255,0.65);">
+            With over 1,000 citations across economics' top journals, Daron's academic output spans political economy, labor, growth theory, networks, and the economics of AI.
+          </p>
+        </div>
+
+        <div class="research-papers">
+          <article class="research-paper">
+            <div class="research-paper-journal">Economic Policy · 2024</div>
+            <h3>The Simple Macroeconomics of AI</h3>
+            <p>A rigorous, task-based assessment of AI's likely impact on GDP and productivity. Challenges hyper-optimistic forecasts and maps the conditions for genuine broad-based benefits.</p>
+          </article>
+
+          <article class="research-paper">
+            <div class="research-paper-journal">Journal of Political Economy · 2019</div>
+            <h3>Democracy Does Cause Growth</h3>
+            <p>With Naidu, Restrepo &amp; Robinson. Establishes causal evidence that democracy promotes long-run economic growth — settling a decades-long debate in political economy.</p>
+          </article>
+
+          <article class="research-paper">
+            <div class="research-paper-journal">American Economic Review · 2020</div>
+            <h3>Robots and Jobs: Evidence from US Labor Markets</h3>
+            <p>With Pascual Restrepo. Measures the impact of industrial robots on employment and wages — finds significant negative effects on workers, with concentrated regional harm.</p>
+          </article>
+
+          <article class="research-paper">
+            <div class="research-paper-journal">Quarterly Journal of Economics · 2001</div>
+            <h3>The Colonial Origins of Comparative Development</h3>
+            <p>With Johnson &amp; Robinson. The landmark paper establishing how European settler mortality shaped colonial institutions — which in turn determine modern economic development.</p>
+          </article>
+
+          <article class="research-paper">
+            <div class="research-paper-journal">Review of Economic Studies · 2002</div>
+            <h3>Reversal of Fortune</h3>
+            <p>With Johnson &amp; Robinson. Shows that once-prosperous pre-colonial civilizations are now relatively poor — evidence that institutions, not geography, drive development outcomes.</p>
+          </article>
+
+          <article class="research-paper">
+            <div class="research-paper-journal">NBER Working Paper · 2024</div>
+            <h3>AI, Human Cognition and Knowledge Collapse</h3>
+            <p>Studies how generative and agentic AI shapes human learning incentives and the long-run evolution of society's knowledge — with implications for education, innovation, and human capital.</p>
+          </article>
+        </div>
+
+        <div style="text-align:center; margin-top:3rem;">
+          <a href="https://scholar.google.com/citations?user=l9Or8EMAAAAJ" target="_blank" rel="noopener" class="btn btn-outline-light">
+            <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+            Full Publication List on Google Scholar
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CTA BANNER ═════════════════════════════════════════ -->
+    <section class="cta-banner fade-in-section" aria-labelledby="books-cta-heading">
+      <div class="container" style="position:relative; z-index:1;">
+        <span class="eyebrow">Speaking &amp; Appearances</span>
+        <h2 id="books-cta-heading">Hear Daron Discuss<br>His Work in Person</h2>
+        <p>Book Daron as a keynote speaker, for a moderated fireside chat, or for an executive roundtable on the ideas in his books.</p>
+        <div class="cta-actions">
+          <a href="speaking.html" class="btn btn-primary">
+            <i class="fa-solid fa-microphone" aria-hidden="true"></i>
+            Speaking Topics
+          </a>
+          <a href="contact.html" class="btn btn-outline-light">Get in Touch</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══ FOOTER ═════════════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="nav-monogram" style="background:var(--color-gold); color:var(--color-navy); width:44px; height:44px; font-family:var(--font-serif); font-size:1.1rem; font-weight:700; display:flex; align-items:center; justify-content:center; border-radius:2px;" aria-hidden="true">DA</div>
+          <div class="footer-brand-name">Daron Acemoglu</div>
+          <div class="footer-brand-title">Nobel Laureate · MIT Institute Professor</div>
+          <p class="footer-brand-bio">Economist, author, and public intellectual at the frontier of institutions, AI, and the future of prosperity.</p>
+        </div>
+        <nav aria-label="Footer navigation">
+          <div class="footer-heading">Navigation</div>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="speaking.html">Speaking</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div>
+          <div class="footer-heading">Contact &amp; Media</div>
+          <ul class="footer-links">
+            <li><a href="contact.html">Speaking Inquiries</a></li>
+            <li><a href="contact.html">Media Requests</a></li>
+            <li><a href="https://economics.mit.edu/people/faculty/daron-acemoglu" target="_blank" rel="noopener">MIT Faculty Page</a></li>
+            <li><a href="https://scholar.google.com/citations?user=l9Or8EMAAAAJ" target="_blank" rel="noopener">Google Scholar</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-legal">&copy; <span id="year"></span> Daron Acemoglu. All rights reserved.</p>
+        <p class="footer-affiliation">Institute Professor, <a href="https://economics.mit.edu/" target="_blank" rel="noopener">MIT Department of Economics</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

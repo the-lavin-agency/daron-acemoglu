@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Daron Acemoglu</title>
+  <meta name="description" content="Learn about Daron Acemoglu — MIT Institute Professor, 2024 Nobel Laureate in Economics, and bestselling author whose research on institutions, AI, and democracy has reshaped modern economics.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Full bio section ──────────────────── */
+    .bio-section {
+      background: var(--color-warm-white);
+    }
+
+    .bio-inner {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .bio-sidebar {
+      position: sticky;
+      top: calc(var(--nav-height) + 2rem);
+    }
+
+    .bio-sidebar-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: top;
+      margin-bottom: 1.5rem;
+    }
+
+    .bio-sidebar-card {
+      background: var(--color-cream);
+      padding: 1.5rem;
+      border-top: 3px solid var(--color-gold);
+    }
+
+    .bio-sidebar-card h3 {
+      font-size: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .bio-sidebar-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .bio-sidebar-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+
+    .bio-sidebar-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      flex-shrink: 0;
+    }
+
+    .bio-sidebar-value {
+      font-size: 0.875rem;
+      color: var(--color-charcoal);
+      text-align: right;
+    }
+
+    .bio-main h2 {
+      margin: 2.5rem 0 1rem;
+    }
+
+    .bio-main h2:first-child {
+      margin-top: 0;
+    }
+
+    .bio-main p {
+      margin-bottom: 1.25rem;
+      font-size: 1.0625rem;
+      line-height: 1.8;
+    }
+
+    /* ── Fellowships / Memberships ────────── */
+    .fellowships-section {
+      background: var(--color-cream);
+    }
+
+    .fellowships-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .fellowship-card {
+      background: var(--color-warm-white);
+      padding: 1.75rem;
+      border-left: 3px solid var(--color-gold);
+    }
+
+    .fellowship-card h3 {
+      font-size: 0.9375rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .fellowship-card p {
+      font-size: 0.825rem;
+      color: var(--color-mid-grey);
+    }
+
+    /* ── Education ────────────────────────── */
+    .education-section {
+      background: var(--color-warm-white);
+    }
+
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .education-card {
+      border-top: 2px solid var(--color-border);
+      padding-top: 1.5rem;
+      transition: var(--transition);
+    }
+
+    .education-card:hover {
+      border-top-color: var(--color-gold);
+    }
+
+    .education-year {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 0.4rem;
+    }
+
+    .education-degree {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--color-navy);
+      margin-bottom: 0.35rem;
+    }
+
+    .education-institution {
+      font-size: 0.9rem;
+      color: var(--color-mid-grey);
+    }
+
+    @media (max-width: 1024px) {
+      .bio-inner { grid-template-columns: 1fr; }
+      .bio-sidebar { position: static; }
+      .bio-sidebar-photo { max-width: 280px; }
+    }
+
+    @media (max-width: 768px) {
+      .fellowships-grid { grid-template-columns: 1fr 1fr; }
+      .education-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .fellowships-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAVIGATION ═════════════════════════════════════════ -->
+  <nav class="site-nav scrolled" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Daron Acemoglu Home">
+        <div class="nav-monogram" aria-hidden="true">DA</div>
+        <div class="nav-name">
+          Daron Acemoglu
+          <span>Nobel Laureate · MIT</span>
+        </div>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="books.html">Books</a></li>
+        <li><a href="speaking.html">Speaking</a></li>
+        <li><a href="contact.html" class="nav-cta">Book Daron</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ══ HERO ═══════════════════════════════════════════════ -->
+    <section class="about-hero" aria-labelledby="about-hero-heading">
+      <div class="container">
+        <div class="about-hero-inner">
+          <div>
+            <span class="eyebrow animate-fade-up">About Daron</span>
+            <h1 id="about-hero-heading" class="animate-fade-up delay-1">
+              The Economist<br>Redefining Prosperity.
+            </h1>
+            <div class="divider animate-fade-up delay-2" aria-hidden="true"></div>
+            <p class="animate-fade-up delay-2">
+              Nobel Prize-winning economist. MIT Institute Professor. One of the most widely cited social scientists in the world. Daron Acemoglu has spent more than three decades building the intellectual frameworks that explain why some societies succeed and others fail — and what must be done, urgently, to shape a better future.
+            </p>
+          </div>
+          <div class="about-hero-photo-wrap animate-fade-up delay-3">
+            <img
+              src="images/daron-headshot.jpg"
+              alt="Daron Acemoglu, MIT Institute Professor"
+              class="about-hero-photo"
+              width="320"
+              height="427"
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ FULL BIO ════════════════════════════════════════════ -->
+    <section class="bio-section section-padding fade-in-section" aria-labelledby="bio-heading">
+      <div class="container">
+        <div class="bio-inner">
+
+          <div class="bio-main" id="bio-heading">
+            <h2>A Life in Ideas</h2>
+            <p>
+              Kamer Daron Acemoğlu was born on September 3, 1967, in Istanbul, Turkey, into an intellectually vibrant household. His father was a lawyer and part-time law lecturer; his mother a teacher. Growing up in a rapidly changing Turkey — politically turbulent, economically uneven, and socially complex — gave Daron an early intuition that the structures of institutions mattered profoundly for human outcomes. That intuition would become his life's work.
+            </p>
+            <p>
+              He left Turkey to study economics in England, earning his BA from the University of York in 1989 and his MSc and PhD from the London School of Economics, where he completed his doctoral thesis in 1992. The following year, he joined MIT as a lecturer — and has never left. Today he holds the most distinguished academic title the institution bestows: Institute Professor, a rank reserved for faculty of exceptional distinction.
+            </p>
+
+            <h2>Nobel-Prize Research: Institutions and Prosperity</h2>
+            <p>
+              The work that earned Daron the 2024 Nobel Prize in Economic Sciences — shared with Simon Johnson and James A. Robinson — began in a simple observation: despite roughly similar endowments of geography and natural resources, some countries became dramatically richer than others after European colonialism. Why?
+            </p>
+            <p>
+              The answer, Daron and his co-authors showed, was institutions. Using historical data on settler mortality rates as an instrument for the quality of colonial institutions established, they demonstrated that extractive colonial institutions produced lasting economic underdevelopment, while inclusive institutions produced lasting growth. The paper — "The Colonial Origins of Comparative Development" (2001) — is among the most cited in the history of economics.
+            </p>
+            <p>
+              This research program culminated in <em>Why Nations Fail</em> (2012), co-authored with James A. Robinson — a global bestseller translated into over 40 languages that brought this framework to general audiences worldwide. The book argues that inclusive political institutions (those that distribute power broadly and protect rights) enable inclusive economic institutions (those that encourage investment and innovation) — and that this combination, not geography or culture, is the true driver of prosperity.
+            </p>
+
+            <h2>The Narrow Corridor: Liberty and the State</h2>
+            <p>
+              In <em>The Narrow Corridor: States, Societies, and the Fate of Liberty</em> (2019), Daron and Robinson extended this framework to ask a deeper question: not just how nations become rich, but how they become — and remain — free. Their answer is that liberty requires a delicate, dynamic balance between a capable state and an active, organized civil society. Too much state power produces despotism; too little produces anarchy. The narrow corridor between them is where democracy and freedom can survive — and it is constantly under threat.
+            </p>
+
+            <h2>AI, Technology, and the Future of Work</h2>
+            <p>
+              In recent years, Daron has become one of the world's most authoritative and clear-eyed voices on artificial intelligence and its consequences for labor, equality, and democracy. His book <em>Power and Progress: Our Thousand-Year Struggle Over Technology and Prosperity</em> (2023), co-authored with Simon Johnson, argues that technological change does not automatically benefit society. Throughout history — from medieval agriculture to the Industrial Revolution — the gains from transformative technologies have been captured by elites, not shared broadly. The same pattern is unfolding today with AI.
+            </p>
+            <p>
+              His academic work on AI — including "The Simple Macroeconomics of AI" (2024) — provides a rigorous corrective to techno-utopian hype, projecting far more modest near-term economic gains than the industry claims, while identifying the structural conditions under which AI could genuinely improve human welfare. His central argument is that current AI development is too focused on replacing workers and too little focused on empowering them.
+            </p>
+            <p>
+              This research has made Daron an essential voice in policy debates at the highest levels — from the White House to the World Economic Forum to central banks around the world.
+            </p>
+
+            <h2>Democracy Under Pressure</h2>
+            <p>
+              In his most recent book, <em>What Happened to Liberal Democracy?</em> (2025), Daron and Robinson return to the most urgent question of our political moment: why are democratic institutions around the world weakening — and what, if anything, can be done to defend and restore them? The book provides both a diagnosis and a prescription, drawing on decades of research into the conditions that make democracy durable.
+            </p>
+
+            <h2>A Public Intellectual for a Critical Moment</h2>
+            <p>
+              Daron's influence extends well beyond academic journals. He is a regular commentator in <em>The New York Times</em>, <em>The Financial Times</em>, <em>The Economist</em>, and <em>Project Syndicate</em>; a sought-after speaker at Davos, TED, and major policy forums; and a trusted advisor to governments and international organizations. He is the third most-cited economist in the world — remarkable not only for the volume but for the breadth of disciplines his work touches.
+            </p>
+            <p>
+              He has received honorary doctorates from the University of Utrecht, Bosporus University, the University of Athens, Bilkent University, the University of Bath, École Normale Supérieure, and the London Business School. He is a Fellow of the National Academy of Sciences, the American Philosophical Society, the British Academy, the Turkish Academy of Sciences, the American Academy of Arts and Sciences, the Econometric Society, the European Economic Association, and the Society of Labor Economists.
+            </p>
+            <p>
+              Daron lives in the Boston area with his family.
+            </p>
+          </div>
+
+          <!-- Sidebar -->
+          <aside class="bio-sidebar" aria-label="Quick facts">
+            <img
+              src="images/daron-headshot.jpg"
+              alt="Daron Acemoglu portrait"
+              class="bio-sidebar-photo"
+              width="320"
+              height="427"
+            >
+            <div class="bio-sidebar-card">
+              <h3>At a Glance</h3>
+              <div class="bio-sidebar-list">
+                <div class="bio-sidebar-item">
+                  <span class="bio-sidebar-label">Born</span>
+                  <span class="bio-sidebar-value">Sep 3, 1967, Istanbul</span>
+                </div>
+                <div class="bio-sidebar-item">
+                  <span class="bio-sidebar-label">Position</span>
+                  <span class="bio-sidebar-value">Institute Professor, MIT</span>
+                </div>
+                <div class="bio-sidebar-item">
+                  <span class="bio-sidebar-label">Nobel</span>
+                  <span class="bio-sidebar-value">Economics, 2024</span>
+                </div>
+                <div class="bio-sidebar-item">
+                  <span class="bio-sidebar-label">Books</span>
+                  <span class="bio-sidebar-value">6 (incl. 4 bestsellers)</span>
+                </div>
+                <div class="bio-sidebar-item">
+                  <span class="bio-sidebar-label">Citations</span>
+                  <span class="bio-sidebar-value">#3 Economist Globally</span>
+                </div>
+                <div class="bio-sidebar-item">
+                  <span class="bio-sidebar-label">MIT Since</span>
+                  <span class="bio-sidebar-value">1993</span>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ EDUCATION ═══════════════════════════════════════════ -->
+    <section class="education-section section-padding fade-in-section" aria-labelledby="education-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Education</span>
+          <h2 id="education-heading">Academic Formation</h2>
+        </div>
+
+        <div class="education-grid">
+          <article class="education-card">
+            <div class="education-year">1989</div>
+            <div class="education-degree">BA in Economics</div>
+            <div class="education-institution">University of York, England</div>
+          </article>
+          <article class="education-card">
+            <div class="education-year">1990</div>
+            <div class="education-degree">MSc in Mathematical Economics &amp; Econometrics</div>
+            <div class="education-institution">London School of Economics</div>
+          </article>
+          <article class="education-card">
+            <div class="education-year">1992</div>
+            <div class="education-degree">PhD in Economics</div>
+            <div class="education-institution">London School of Economics</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ AWARDS ═══════════════════════════════════════════════ -->
+    <section class="awards-section section-padding fade-in-section" aria-labelledby="awards-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Honors &amp; Recognition</span>
+          <h2 id="awards-heading">Awards &amp; Fellowships</h2>
+        </div>
+
+        <div class="awards-grid">
+          <article class="award-card">
+            <div class="award-year">2024</div>
+            <h3>Nobel Prize in Economic Sciences</h3>
+            <p>Sveriges Riksbank Prize — for studies of how institutions are formed and affect prosperity.</p>
+          </article>
+
+          <article class="award-card">
+            <div class="award-year">2021</div>
+            <h3>CME Mathematical and Statistical Research Institute Prize</h3>
+            <p>For outstanding contributions to mathematical economics and econometrics.</p>
+          </article>
+
+          <article class="award-card">
+            <div class="award-year">2019</div>
+            <h3>Global Economy Prize</h3>
+            <p>Kiel Institute for the World Economy.</p>
+          </article>
+
+          <article class="award-card">
+            <div class="award-year">2018</div>
+            <h3>Jean-Jacques Laffont Prize</h3>
+            <p>For contributions at the intersection of economic theory and empirical research.</p>
+          </article>
+
+          <article class="award-card">
+            <div class="award-year">2017</div>
+            <h3>Carnegie Fellowship</h3>
+            <p>Andrew Carnegie Fellows Program, recognizing scholarship on important social issues.</p>
+          </article>
+
+          <article class="award-card">
+            <div class="award-year">2016</div>
+            <h3>BBVA Frontiers of Knowledge Award</h3>
+            <p>In the Economics, Finance &amp; Management category.</p>
+          </article>
+
+          <article class="award-card">
+            <div class="award-year">2012</div>
+            <h3>Erwin Plein Nemmers Prize</h3>
+            <p>Northwestern University, awarded for work of lasting significance in economics.</p>
+          </article>
+
+          <article class="award-card">
+            <div class="award-year">2007</div>
+            <h3>John von Neumann Award</h3>
+            <p>Rajk College, Budapest — for interdisciplinary contributions to the social sciences.</p>
+          </article>
+
+          <article class="award-card">
+            <div class="award-year">2005</div>
+            <h3>John Bates Clark Medal</h3>
+            <p>American Economic Association — awarded to the best U.S. economist under 40.</p>
+          </article>
+
+          <article class="award-card">
+            <div class="award-year">2006</div>
+            <h3>Distinguished Science Award</h3>
+            <p>Turkish Academy of Sciences.</p>
+          </article>
+
+          <article class="award-card">
+            <div class="award-year">2004</div>
+            <h3>T.W. Shultz Prize</h3>
+            <p>University of Chicago — inaugural award for contributions to labor economics.</p>
+          </article>
+
+          <article class="award-card">
+            <div class="award-year">2004</div>
+            <h3>Sherwin Rosen Award</h3>
+            <p>Inaugural award for outstanding contribution to labor economics.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ FELLOWSHIPS ════════════════════════════════════════ -->
+    <section class="fellowships-section section-padding fade-in-section" aria-labelledby="fellowships-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Academic Memberships</span>
+          <h2 id="fellowships-heading">Elected Fellowships &amp; Memberships</h2>
+        </div>
+
+        <div class="fellowships-grid">
+          <article class="fellowship-card">
+            <h3>National Academy of Sciences</h3>
+            <p>Elected Fellow</p>
+          </article>
+          <article class="fellowship-card">
+            <h3>American Philosophical Society</h3>
+            <p>Elected Fellow</p>
+          </article>
+          <article class="fellowship-card">
+            <h3>British Academy of Sciences</h3>
+            <p>Elected Fellow</p>
+          </article>
+          <article class="fellowship-card">
+            <h3>Turkish Academy of Sciences</h3>
+            <p>Elected Fellow</p>
+          </article>
+          <article class="fellowship-card">
+            <h3>American Academy of Arts &amp; Sciences</h3>
+            <p>Elected Fellow</p>
+          </article>
+          <article class="fellowship-card">
+            <h3>Econometric Society</h3>
+            <p>Elected Fellow</p>
+          </article>
+          <article class="fellowship-card">
+            <h3>European Economic Association</h3>
+            <p>Elected Fellow</p>
+          </article>
+          <article class="fellowship-card">
+            <h3>Society of Labor Economists</h3>
+            <p>Elected Fellow</p>
+          </article>
+          <article class="fellowship-card">
+            <h3>The Group of Thirty</h3>
+            <p>Member — leading international economic organization</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ TIMELINE ════════════════════════════════════════════ -->
+    <section class="timeline-section section-padding fade-in-section" aria-labelledby="timeline-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Career</span>
+          <h2 id="timeline-heading">A Career at the Frontier</h2>
+        </div>
+
+        <div class="timeline" role="list">
+          <div class="timeline-item" role="listitem">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-year">2024</div>
+            <h3>Nobel Prize in Economic Sciences</h3>
+            <p>Awarded with Simon Johnson and James A. Robinson "for studies of how institutions are formed and affect prosperity." Delivers Nobel Lecture in Stockholm, December 2024.</p>
+          </div>
+
+          <div class="timeline-item" role="listitem">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-year">2023</div>
+            <h3>Power and Progress Published</h3>
+            <p>Co-authored with Simon Johnson. An immediate critical success, hailed as the essential guide to understanding AI and its implications for workers and democracy.</p>
+          </div>
+
+          <div class="timeline-item" role="listitem">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-year">2019</div>
+            <h3>The Narrow Corridor Published; Global Economy Prize</h3>
+            <p>The follow-up to Why Nations Fail takes on the deepest question in political economy: how can liberty survive? Awarded the Global Economy Prize by the Kiel Institute.</p>
+          </div>
+
+          <div class="timeline-item" role="listitem">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-year">2012</div>
+            <h3>Why Nations Fail — New York Times Bestseller</h3>
+            <p>The book becomes a global phenomenon, translated into 40+ languages and sparking worldwide debate on institutions, colonialism, and development economics.</p>
+          </div>
+
+          <div class="timeline-item" role="listitem">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-year">2009</div>
+            <h3>Introduction to Modern Economic Growth</h3>
+            <p>Published by Princeton University Press — a landmark graduate textbook that redefines the field of economic growth theory.</p>
+          </div>
+
+          <div class="timeline-item" role="listitem">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-year">2005</div>
+            <h3>John Bates Clark Medal</h3>
+            <p>Awarded by the American Economic Association to the best economist in the United States under the age of 40 — economics' most prestigious under-40 honor.</p>
+          </div>
+
+          <div class="timeline-item" role="listitem">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-year">2001</div>
+            <h3>"The Colonial Origins of Comparative Development"</h3>
+            <p>Published in the American Economic Review. The foundational paper establishing institutions as the primary driver of long-run economic development. Becomes one of the most cited papers in economics history.</p>
+          </div>
+
+          <div class="timeline-item" role="listitem">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-year">1993</div>
+            <h3>Joins MIT</h3>
+            <p>Appointed as Lecturer in the MIT Department of Economics. Rises through the ranks to become Institute Professor — the highest honor MIT bestows on faculty.</p>
+          </div>
+
+          <div class="timeline-item" role="listitem">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-year">1992</div>
+            <h3>PhD from the London School of Economics</h3>
+            <p>Completes his doctorate in economics. Brings a deep mathematical training to questions of political economy that would define his research agenda for decades.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CTA BANNER ═════════════════════════════════════════ -->
+    <section class="cta-banner fade-in-section" aria-labelledby="about-cta-heading">
+      <div class="container" style="position:relative; z-index:1;">
+        <span class="eyebrow">Engage with Daron</span>
+        <h2 id="about-cta-heading">Explore His Books.<br>Hear Him Speak.</h2>
+        <p>Read his bestselling books, browse his academic research, or invite Daron to speak at your organization or event.</p>
+        <div class="cta-actions">
+          <a href="books.html" class="btn btn-primary">
+            <i class="fa-solid fa-book" aria-hidden="true"></i>
+            Explore Books
+          </a>
+          <a href="speaking.html" class="btn btn-outline-light">Speaking Inquiries</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══ FOOTER ═════════════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="nav-monogram" style="background:var(--color-gold); color:var(--color-navy); width:44px; height:44px; font-family:var(--font-serif); font-size:1.1rem; font-weight:700; display:flex; align-items:center; justify-content:center; border-radius:2px;" aria-hidden="true">DA</div>
+          <div class="footer-brand-name">Daron Acemoglu</div>
+          <div class="footer-brand-title">Nobel Laureate · MIT Institute Professor</div>
+          <p class="footer-brand-bio">Economist, author, and public intellectual at the frontier of institutions, AI, and the future of prosperity.</p>
+        </div>
+        <nav aria-label="Footer navigation">
+          <div class="footer-heading">Navigation</div>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="speaking.html">Speaking</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div>
+          <div class="footer-heading">Contact &amp; Media</div>
+          <ul class="footer-links">
+            <li><a href="contact.html">Speaking Inquiries</a></li>
+            <li><a href="contact.html">Media Requests</a></li>
+            <li><a href="https://economics.mit.edu/people/faculty/daron-acemoglu" target="_blank" rel="noopener">MIT Faculty Page</a></li>
+            <li><a href="https://economics.mit.edu/sites/default/files/2022-08/Daron%20Acemoglu%20CV.pdf" target="_blank" rel="noopener">Full CV (PDF)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-legal">&copy; <span id="year"></span> Daron Acemoglu. All rights reserved.</p>
+        <p class="footer-affiliation">Institute Professor, <a href="https://economics.mit.edu/" target="_blank" rel="noopener">MIT Department of Economics</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

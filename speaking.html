@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Speaking — Daron Acemoglu</title>
+  <meta name="description" content="Book Nobel Prize-winning economist Daron Acemoglu as a keynote speaker. Topics include AI, democracy, institutions, inequality, and the future of work.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Speaking Page Extras ────────────────── */
+    .audience-section {
+      background: var(--color-warm-white);
+    }
+
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .audience-card {
+      padding: 2rem 1.5rem;
+      border: 1px solid var(--color-border);
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .audience-card:hover {
+      border-color: var(--color-gold);
+      background: var(--color-cream);
+      transform: translateY(-4px);
+    }
+
+    .audience-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .audience-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .audience-card p {
+      font-size: 0.85rem;
+      color: var(--color-mid-grey);
+    }
+
+    /* ── Video Placeholder ───────────────────── */
+    .video-section {
+      background: var(--color-navy);
+      padding: 80px 0;
+    }
+
+    .video-embed-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto;
+      aspect-ratio: 16/9;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      overflow: hidden;
+    }
+
+    .video-embed-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* ── Past Venues ─────────────────────────── */
+    .venues-section {
+      background: var(--color-cream);
+    }
+
+    .venues-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .venue-item {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .venue-name {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-navy);
+      line-height: 1.3;
+    }
+
+    .venue-type {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+    }
+
+    /* ── Inquiry CTA ─────────────────────────── */
+    .speaking-inquiry {
+      background: var(--color-warm-white);
+      padding: 80px 0;
+    }
+
+    .speaking-inquiry-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .speaking-inquiry h2 {
+      margin-bottom: 1.25rem;
+    }
+
+    .speaking-inquiry p {
+      margin-bottom: 1.5rem;
+      color: var(--color-mid-grey);
+    }
+
+    .inquiry-details {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .inquiry-detail {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+    }
+
+    .inquiry-detail i {
+      color: var(--color-gold);
+      width: 16px;
+      text-align: center;
+    }
+
+    .inquiry-detail span {
+      font-size: 0.9375rem;
+      color: var(--color-charcoal);
+    }
+
+    .speaking-inquiry-image {
+      position: relative;
+    }
+
+    .speaking-inquiry-image img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    @media (max-width: 768px) {
+      .audience-grid { grid-template-columns: repeat(2, 1fr); }
+      .venues-grid { grid-template-columns: repeat(2, 1fr); }
+      .speaking-inquiry-inner { grid-template-columns: 1fr; }
+      .speaking-inquiry-image { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .audience-grid { grid-template-columns: 1fr; }
+      .venues-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAVIGATION ═════════════════════════════════════════ -->
+  <nav class="site-nav scrolled" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Daron Acemoglu Home">
+        <div class="nav-monogram" aria-hidden="true">DA</div>
+        <div class="nav-name">
+          Daron Acemoglu
+          <span>Nobel Laureate · MIT</span>
+        </div>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="books.html">Books</a></li>
+        <li><a href="speaking.html" class="active">Speaking</a></li>
+        <li><a href="contact.html" class="nav-cta">Book Daron</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ══ HERO ═══════════════════════════════════════════════ -->
+    <section class="speaking-hero" aria-labelledby="speaking-hero-heading">
+      <img
+        src="images/daron-speaking.jpg"
+        alt="Daron Acemoglu speaking at a major conference"
+        class="speaking-hero-bg"
+        aria-hidden="true"
+      >
+      <div class="container">
+        <div class="speaking-hero-content">
+          <span class="eyebrow animate-fade-up">Speaking &amp; Keynotes</span>
+          <h1 id="speaking-hero-heading" class="animate-fade-up delay-1">
+            Ideas That Change<br>How Leaders Think.
+          </h1>
+          <p class="animate-fade-up delay-2">
+            From the World Economic Forum to corporate boardrooms, Daron Acemoglu brings Nobel-caliber insight to the questions defining our era: AI, democracy, inequality, and the institutions that shape human flourishing.
+          </p>
+          <div class="animate-fade-up delay-3" style="display:flex; gap:1rem; flex-wrap:wrap;">
+            <a href="contact.html" class="btn btn-primary">
+              <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+              Inquire About Availability
+            </a>
+            <a href="#topics" class="btn btn-outline-light">Explore Topics</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SPEAKING TOPICS ════════════════════════════════════ -->
+    <section id="topics" class="speaking-topics section-padding fade-in-section" aria-labelledby="topics-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Signature Topics</span>
+          <h2 id="topics-heading">What Daron Speaks About</h2>
+          <p class="lead">Each talk draws on decades of peer-reviewed research, delivered with clarity and conviction for non-specialist audiences.</p>
+        </div>
+
+        <div class="speaking-topics-list" role="list">
+
+          <article class="speaking-topic-item" role="listitem">
+            <div class="speaking-topic-icon" aria-hidden="true">
+              <i class="fa-solid fa-robot"></i>
+            </div>
+            <div class="speaking-topic-content">
+              <h3>AI, Technology &amp; the Future of Work</h3>
+              <p>Is artificial intelligence a tool for shared prosperity — or a mechanism for concentrating wealth and power? Daron's research cuts through the hype to provide a rigorous, evidence-based account of what AI is actually doing to labor markets, wages, and democratic societies. This talk offers a path toward technology that genuinely works for everyone.</p>
+            </div>
+            <div class="speaking-topic-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></div>
+          </article>
+
+          <article class="speaking-topic-item" role="listitem">
+            <div class="speaking-topic-icon" aria-hidden="true">
+              <i class="fa-solid fa-landmark"></i>
+            </div>
+            <div class="speaking-topic-content">
+              <h3>Why Nations Fail: Institutions &amp; Prosperity</h3>
+              <p>The fundamental insight at the heart of Daron's Nobel-recognized research: it is the quality of a nation's political and economic institutions — not its geography, culture, or resources — that determines long-run prosperity. This foundational talk draws on historical case studies across centuries and continents.</p>
+            </div>
+            <div class="speaking-topic-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></div>
+          </article>
+
+          <article class="speaking-topic-item" role="listitem">
+            <div class="speaking-topic-icon" aria-hidden="true">
+              <i class="fa-solid fa-scale-balanced"></i>
+            </div>
+            <div class="speaking-topic-content">
+              <h3>What Happened to Liberal Democracy?</h3>
+              <p>Democratic institutions around the world are under unprecedented strain. Daron examines the structural forces behind democratic backsliding — elite capture, weakened checks and balances, and the erosion of civil society — and makes the case for why reversing these trends is both urgent and possible.</p>
+            </div>
+            <div class="speaking-topic-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></div>
+          </article>
+
+          <article class="speaking-topic-item" role="listitem">
+            <div class="speaking-topic-icon" aria-hidden="true">
+              <i class="fa-solid fa-microchip"></i>
+            </div>
+            <div class="speaking-topic-content">
+              <h3>Power &amp; Progress: A Thousand Years of Technology</h3>
+              <p>Throughout history, transformative technologies have not automatically delivered broad-based benefits. From the printing press to the steam engine to digital computing, Daron traces how the direction of technological change — not its speed — determines who wins and who loses. The lesson for AI is urgent.</p>
+            </div>
+            <div class="speaking-topic-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></div>
+          </article>
+
+          <article class="speaking-topic-item" role="listitem">
+            <div class="speaking-topic-icon" aria-hidden="true">
+              <i class="fa-solid fa-chart-bar"></i>
+            </div>
+            <div class="speaking-topic-content">
+              <h3>Inequality: Causes, Consequences &amp; Policy</h3>
+              <p>Rising inequality is not an inevitable byproduct of economic growth — it is the result of specific policy choices, technological trajectories, and institutional arrangements. Daron's framework identifies the levers most likely to produce lasting, equitable change.</p>
+            </div>
+            <div class="speaking-topic-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></div>
+          </article>
+
+          <article class="speaking-topic-item" role="listitem">
+            <div class="speaking-topic-icon" aria-hidden="true">
+              <i class="fa-solid fa-globe"></i>
+            </div>
+            <div class="speaking-topic-content">
+              <h3>The Narrow Corridor: Freedom vs. State Power</h3>
+              <p>Liberty is not the default condition of societies — it requires a delicate balance between a capable state and a mobilized society. Daron's research identifies the narrow corridor in which democracy and individual freedom can be sustained, and explains why so few societies manage to stay within it.</p>
+            </div>
+            <div class="speaking-topic-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ VIDEO SECTION ══════════════════════════════════════ -->
+    <section class="video-section fade-in-section" aria-labelledby="video-heading">
+      <div class="container">
+        <div class="section-header center" style="margin-bottom:3rem;">
+          <span class="eyebrow">Watch</span>
+          <h2 id="video-heading" style="color: var(--color-warm-white);">Daron in Action</h2>
+          <p class="lead" style="color: rgba(255,255,255,0.65);">2024 Nobel Prize Official Interview</p>
+        </div>
+        <div class="video-embed-wrap">
+          <iframe
+            src="https://www.youtube.com/embed/nqeFL9_0L_c"
+            title="Daron Acemoglu Nobel Prize 2024 Official Interview"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SPEAKING FORMATS ═══════════════════════════════════ -->
+    <section class="speaking-formats section-padding fade-in-section" aria-labelledby="formats-heading">
+      <div class="container">
+        <div class="section-header center">
+          <span class="eyebrow">Formats</span>
+          <h2 id="formats-heading">Flexible Engagement Models</h2>
+          <p class="lead">From intimate roundtables to main-stage keynotes, Daron works with event teams to deliver the format that best serves your audience.</p>
+        </div>
+
+        <div class="formats-grid">
+          <article class="format-card">
+            <span class="format-icon" aria-hidden="true">🎤</span>
+            <h3>Keynote Address</h3>
+            <p>A commanding 45–60 minute keynote tailored to your theme and audience, drawing on Daron's latest research and public-intellectual perspective. Ideal for conferences, annual meetings, and leadership summits.</p>
+          </article>
+
+          <article class="format-card">
+            <span class="format-icon" aria-hidden="true">💬</span>
+            <h3>Fireside Chat / Interview</h3>
+            <p>A moderated conversation that draws out Daron's most current thinking in an accessible, engaging format. Highly effective for audiences who want more nuance and interactivity than a traditional lecture.</p>
+          </article>
+
+          <article class="format-card">
+            <span class="format-icon" aria-hidden="true">🔬</span>
+            <h3>Executive Roundtable</h3>
+            <p>An intimate, high-level discussion with senior leaders on a focused topic — AI strategy, institutional reform, policy design, or economic outlook. Limited to 30 participants for maximum depth and candor.</p>
+          </article>
+
+          <article class="format-card">
+            <span class="format-icon" aria-hidden="true">🏛️</span>
+            <h3>Panel Participation</h3>
+            <p>Daron is available to join curated panel discussions alongside other thought leaders, providing an authoritative anchor voice on economic, technological, or political-economy themes.</p>
+          </article>
+
+          <article class="format-card">
+            <span class="format-icon" aria-hidden="true">📡</span>
+            <h3>Virtual &amp; Hybrid</h3>
+            <p>All formats are available for virtual or hybrid delivery, maintaining the depth and engagement of an in-person experience for global audiences.</p>
+          </article>
+
+          <article class="format-card">
+            <span class="format-icon" aria-hidden="true">🎓</span>
+            <h3>Academic &amp; Policy</h3>
+            <p>Daron regularly engages with academic institutions, think tanks, and government bodies for research seminars, policy briefings, and specialized presentations on current economic research.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ AUDIENCE TYPES ═════════════════════════════════════ -->
+    <section class="audience-section section-padding fade-in-section" aria-labelledby="audience-heading">
+      <div class="container">
+        <div class="section-header center">
+          <span class="eyebrow">Who Attends</span>
+          <h2 id="audience-heading">Daron Speaks to Leaders Across Sectors</h2>
+        </div>
+
+        <div class="audience-grid">
+          <article class="audience-card">
+            <span class="audience-icon" aria-hidden="true">🏦</span>
+            <h3>Financial &amp; Investment</h3>
+            <p>Central banks, asset managers, hedge funds, and global financial institutions.</p>
+          </article>
+
+          <article class="audience-card">
+            <span class="audience-icon" aria-hidden="true">🤖</span>
+            <h3>Technology &amp; AI</h3>
+            <p>Tech companies, AI labs, venture capital, and frontier digital economy leaders.</p>
+          </article>
+
+          <article class="audience-card">
+            <span class="audience-icon" aria-hidden="true">🏛️</span>
+            <h3>Government &amp; Policy</h3>
+            <p>International organizations, national governments, think tanks, and multilateral bodies.</p>
+          </article>
+
+          <article class="audience-card">
+            <span class="audience-icon" aria-hidden="true">🎓</span>
+            <h3>Academic &amp; Research</h3>
+            <p>Universities, economics departments, policy research centers, and scholarly associations.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ PAST VENUES ════════════════════════════════════════ -->
+    <section class="venues-section section-padding fade-in-section" aria-labelledby="venues-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Past Venues</span>
+          <h2 id="venues-heading">Trusted by the World's Leading Institutions</h2>
+        </div>
+
+        <div class="venues-grid">
+          <div class="venue-item">
+            <span class="venue-type">Global Forum</span>
+            <span class="venue-name">World Economic Forum, Davos</span>
+          </div>
+          <div class="venue-item">
+            <span class="venue-type">Academic</span>
+            <span class="venue-name">Nobel Prize Lecture, Stockholm</span>
+          </div>
+          <div class="venue-item">
+            <span class="venue-type">Government</span>
+            <span class="venue-name">International Monetary Fund</span>
+          </div>
+          <div class="venue-item">
+            <span class="venue-type">Academic</span>
+            <span class="venue-name">London School of Economics</span>
+          </div>
+          <div class="venue-item">
+            <span class="venue-type">Policy</span>
+            <span class="venue-name">Brookings Institution</span>
+          </div>
+          <div class="venue-item">
+            <span class="venue-type">Technology</span>
+            <span class="venue-name">MIT Technology Review Events</span>
+          </div>
+          <div class="venue-item">
+            <span class="venue-type">Media</span>
+            <span class="venue-name">The Economist Conferences</span>
+          </div>
+          <div class="venue-item">
+            <span class="venue-type">Business</span>
+            <span class="venue-name">Fortune Global Forum</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ PRESS QUOTES ═══════════════════════════════════════ -->
+    <section class="press-quotes fade-in-section" aria-labelledby="speaking-quotes-heading">
+      <div class="container">
+        <div class="section-header center" style="margin-bottom:3rem;">
+          <span class="eyebrow">Audience Feedback</span>
+          <h2 id="speaking-quotes-heading" style="color: var(--color-warm-white);">What Attendees Say</h2>
+        </div>
+        <div class="quotes-grid">
+          <blockquote class="quote-card">
+            <p>"Daron has a rare gift: he makes extraordinarily complex economic ideas feel not just understandable but urgent. Our audience left genuinely changed."</p>
+            <cite class="quote-source">World Economic Forum</cite>
+          </blockquote>
+
+          <blockquote class="quote-card">
+            <p>"His keynote reframed how our entire leadership team thinks about AI investment. The depth of research behind every point was evident — and memorable."</p>
+            <cite class="quote-source">Fortune 100 Technology Company</cite>
+          </blockquote>
+
+          <blockquote class="quote-card">
+            <p>"The most requested speaker we have ever featured. He combines academic rigor with a genuine concern for human outcomes that resonates across every audience."</p>
+            <cite class="quote-source">The Economist Group</cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SPEAKING INQUIRY ═══════════════════════════════════ -->
+    <section class="speaking-inquiry fade-in-section" aria-labelledby="speaking-inquiry-heading">
+      <div class="container">
+        <div class="speaking-inquiry-inner">
+          <div>
+            <span class="eyebrow">Book a Speaking Engagement</span>
+            <h2 id="speaking-inquiry-heading">Bring Daron to<br>Your Stage</h2>
+            <div class="divider" aria-hidden="true"></div>
+            <p>Daron is represented exclusively by <strong>The Lavin Agency</strong> for speaking engagements. To check availability and discuss your event, please reach out directly.</p>
+
+            <div class="inquiry-details">
+              <div class="inquiry-detail">
+                <i class="fa-solid fa-check" aria-hidden="true"></i>
+                <span>Customized topics tailored to your audience and industry</span>
+              </div>
+              <div class="inquiry-detail">
+                <i class="fa-solid fa-check" aria-hidden="true"></i>
+                <span>Available for in-person, virtual, and hybrid formats</span>
+              </div>
+              <div class="inquiry-detail">
+                <i class="fa-solid fa-check" aria-hidden="true"></i>
+                <span>International engagements welcome</span>
+              </div>
+              <div class="inquiry-detail">
+                <i class="fa-solid fa-check" aria-hidden="true"></i>
+                <span>Book cover &amp; promotional materials provided</span>
+              </div>
+            </div>
+
+            <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+              <a href="contact.html" class="btn btn-primary">
+                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+                Send an Inquiry
+              </a>
+              <a href="https://thelavinagency.com/speakers/daron-acemoglu/" target="_blank" rel="noopener" class="btn btn-outline">
+                Lavin Agency Profile
+              </a>
+            </div>
+          </div>
+
+          <div class="speaking-inquiry-image">
+            <img
+              src="images/daron-portrait2.jpg"
+              alt="Daron Acemoglu at the Nobel Prize announcement press conference"
+              width="520"
+              height="390"
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══ FOOTER ═════════════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="nav-monogram" style="background:var(--color-gold); color:var(--color-navy); width:44px; height:44px; font-family:var(--font-serif); font-size:1.1rem; font-weight:700; display:flex; align-items:center; justify-content:center; border-radius:2px;" aria-hidden="true">DA</div>
+          <div class="footer-brand-name">Daron Acemoglu</div>
+          <div class="footer-brand-title">Nobel Laureate · MIT Institute Professor</div>
+          <p class="footer-brand-bio">Economist, author, and public intellectual at the frontier of institutions, AI, and the future of prosperity.</p>
+        </div>
+        <nav aria-label="Footer navigation">
+          <div class="footer-heading">Navigation</div>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="speaking.html">Speaking</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div>
+          <div class="footer-heading">Contact &amp; Media</div>
+          <ul class="footer-links">
+            <li><a href="contact.html">Speaking Inquiries</a></li>
+            <li><a href="contact.html">Media Requests</a></li>
+            <li><a href="https://economics.mit.edu/people/faculty/daron-acemoglu" target="_blank" rel="noopener">MIT Faculty Page</a></li>
+            <li><a href="https://www.nobelprize.org/prizes/economic-sciences/2024/acemoglu/facts/" target="_blank" rel="noopener">Nobel Prize Profile</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-legal">&copy; <span id="year"></span> Daron Acemoglu. All rights reserved.</p>
+        <p class="footer-affiliation">Institute Professor, <a href="https://economics.mit.edu/" target="_blank" rel="noopener">MIT Department of Economics</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
